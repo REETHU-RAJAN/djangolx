@@ -1,0 +1,70 @@
+
+{%extends 'base.html'%}
+{%block title_block%}
+<title>list vehicle</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+{%endblock%}
+{%block body_block%}
+
+
+    <div class="container">
+        
+        <div class="row mt-5">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <h1 class="text-center">VEHICLE LIST</h1>
+                <table class="table table-striped table-dark border">
+                    <tr>
+                        <td>Vehicle-Name</td>
+                        <td>Vehicle-Number</td>
+                        <td>Owner-Name</td>
+                        <td>Vehicle-Model</td>
+                        <td>Kms-run</td>
+                        <td class="text-center">Action</td>
+                    </tr>
+                    {% for olx in olxs%}
+                    <tr>
+                        <td>{{olx.vehicle_name}}</td>
+                        <td>{{olx.vehicle_number}}</td>
+                        <td>{{olx.owner_name}}</td>
+                        <td>{{olx.vehicle_model}}</td>
+                        <td>{{olx.kms_run}}</td>
+                        
+                        
+                        
+                        
+                        
+                        <td class="px-2">
+                        <a href="{%url 'olx-detail' olx.id %}" class="ms-1"><i class="fa-regular fa-eye fa-shake text-info"></i></a>
+                        <a href="{%url 'olx-remove' olx.id %}" class="ms-1"><i class="fa-solid fa-trash text-danger"></i></a>
+                        <a href="{%url 'olx-change' olx.id %}" class="ms-1"><i class="fa-solid fa-pen-to-square text-warning"></i></a>
+
+
+
+
+
+                        </td>
+                    </tr>
+                    {% endfor%}
+
+
+
+                </table>
+
+
+
+
+
+            </div>
+            <div class="col-1"></div>
+
+
+
+        </div>
+    </div>
+    
+{%endblock%}
+
+
+
